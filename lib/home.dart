@@ -9,7 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var num1 = 0, num2 = 0, sum = 0;
+  var num1 = 0, num2 = 0, result = 0;
 
   late TextEditingController t1 = TextEditingController(text: "0");
   late TextEditingController t2 = TextEditingController(text: "0");
@@ -18,7 +18,31 @@ class _HomeState extends State<Home> {
     setState(() {
       num1 = int.parse(t1.text);
       num2 = int.parse(t2.text);
-      sum = num1 + num2;
+      result = num1 + num2;
+    });
+  }
+
+  void substract() {
+    setState(() {
+      num1 = int.parse(t1.text);
+      num2 = int.parse(t2.text);
+      result = num1 - num2;
+    });
+  }
+
+  void multiply() {
+    setState(() {
+      num1 = int.parse(t1.text);
+      num2 = int.parse(t2.text);
+      result = num1 * num2;
+    });
+  }
+
+  void divide() {
+    setState(() {
+      num1 = int.parse(t1.text);
+      num2 = int.parse(t2.text);
+      result = num1 ~/ num2;
     });
   }
 
@@ -34,7 +58,7 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Output: $sum",
+              "Output: $result",
               style: const TextStyle(
                 color: Colors.purple,
                 fontSize: 20.0,
@@ -64,11 +88,11 @@ class _HomeState extends State<Home> {
               children: [
                 CupertinoButton.filled(
                   child: const Text("+"),
-                  onPressed: () => {},
+                  onPressed: () => {doAddition()},
                 ),
                 CupertinoButton.filled(
                   child: const Text("-"),
-                  onPressed: () => {},
+                  onPressed: () => {substract()},
                 ),
               ],
             ),
@@ -80,11 +104,11 @@ class _HomeState extends State<Home> {
               children: [
                 CupertinoButton.filled(
                   child: const Text("*"),
-                  onPressed: () => {},
+                  onPressed: () => {multiply()},
                 ),
                 CupertinoButton.filled(
                   child: const Text("/"),
-                  onPressed: () => {},
+                  onPressed: () => {divide()},
                 ),
               ],
             ),
