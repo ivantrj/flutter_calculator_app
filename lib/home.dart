@@ -46,6 +46,14 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void clear() {
+    setState(() {
+      t1.text = "0";
+      t2.text = "0";
+      result = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,6 +117,15 @@ class _HomeState extends State<Home> {
                 CupertinoButton.filled(
                   child: const Text("/"),
                   onPressed: () => {divide()},
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CupertinoButton(
+                  child: const Text("Clear"),
+                  onPressed: () => {clear()},
                 ),
               ],
             ),
